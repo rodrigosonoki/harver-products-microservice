@@ -19,7 +19,7 @@ function productController() {
           .status(404)
           .json({ message: `Product not found for id ${id}` });
       }
-      res.json(found);
+      return res.json(found);
     }
     return res.status(404).json({ message: `Product not found for id ${id}` });
   };
@@ -28,9 +28,9 @@ function productController() {
     const newProduct = req.body;
     try {
       const createdProduct = await productService.create(newProduct);
-      res.status(201).json(createdProduct);
+      return res.status(201).json(createdProduct);
     } catch (err) {
-      res.status(400).json({
+      return res.status(400).json({
         message: "Product is not valid.",
       });
     }
