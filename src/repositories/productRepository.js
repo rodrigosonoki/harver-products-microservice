@@ -2,6 +2,8 @@ import Product from "../models/Product";
 
 function createProductRepository() {
   const findAll = async () => await Product.find().lean();
+  const findAllActive = async () =>
+    await Product.find({ isActive: true }).lean();
   const findById = async (id) => await Product.findById(id).lean();
   const insert = async (product) => {
     const newProduct = new Product({
@@ -20,6 +22,7 @@ function createProductRepository() {
 
   return {
     findAll,
+    findAllActive,
     findById,
     insert,
     inactivateById,
