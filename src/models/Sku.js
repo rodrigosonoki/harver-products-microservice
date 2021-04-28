@@ -1,22 +1,26 @@
-const mongoose = require("mongoose");
+import db from "../database/db";
 
-const skuSchema = new mongoose.Schema(
+const skuSchema = new db.Schema(
   {
     product: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: db.Schema.Types.ObjectId,
       ref: "Product",
-      required: true
+      required: true,
     },
     size: {
       type: "String",
       required: true,
     },
+    color: {
+      type: "String",
+      required: true,
+    },
     quantity: {
-        type: Number,
-        default: 1000000
-    }
+      type: Number,
+      default: 1000000,
+    },
   },
   { collection: "skus" }
 );
 
-module.exports = mongoose.model("Sku", skuSchema);
+module.exports = db.model("Sku", skuSchema);

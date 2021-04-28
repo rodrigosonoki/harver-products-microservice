@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 
-import productRoutes from "./routes/productRoutes";
+import routes from "./routes";
 
 require("dotenv/config");
 
@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cors());
 app.options("*", cors());
 
-app.use("/api/v1/products", productRoutes);
+app.use("/api/v1/products", routes);
 
 app.listen(process.env.PORT, () => {
   console.log(`Product-API is running on PORT ${process.env.PORT}`);

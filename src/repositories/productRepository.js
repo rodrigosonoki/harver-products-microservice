@@ -7,14 +7,22 @@ function createProductRepository() {
     const newProduct = new Product({
       name: product.name,
       price: product.price,
+      category: product.category,
+      userId: product.userId,
+      artwork: product.artwork,
     });
     return await newProduct.save();
+  };
+  const inactivateById = async (id) => {
+    const product = await Product.findByIdAndUpdate(id, { isActive: false });
+    return await product.save();
   };
 
   return {
     findAll,
     findById,
     insert,
+    inactivateById,
   };
 }
 
