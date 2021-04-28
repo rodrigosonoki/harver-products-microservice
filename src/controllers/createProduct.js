@@ -22,7 +22,7 @@ async function createProduct(req, res) {
     return res.status(201).json(createdProduct);
   } catch (err) {
     return res.status(400).json({
-      message: "Product is not valid.",
+      message: "Produto não é válido.",
     });
   }
 }
