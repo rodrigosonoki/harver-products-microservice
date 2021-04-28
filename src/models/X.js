@@ -7,8 +7,18 @@ const ProductSchema = new db.Schema(
       required: true,
       lowercase: true,
     },
+    images: [
+      {
+        type: "String",
+      },
+    ],
+    description: "String",
     price: {
       type: Number,
+      required: true,
+    },
+    userId: {
+      type: "String",
       required: true,
     },
     createdAt: {
