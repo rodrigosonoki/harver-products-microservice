@@ -11,10 +11,6 @@ const skuSchema = new db.Schema(
       type: "String",
       required: true,
     },
-    color: {
-      type: "String",
-      required: true,
-    },
     quantity: {
       type: Number,
       default: 1000000,
