@@ -29,6 +29,11 @@ function createProductRepository() {
     return await product.save();
   };
 
+  const updatePriceById = async (id, price) => {
+    const product = await Product.findByIdAndUpdate(id, { price });
+    return await product.save();
+  };
+
   return {
     findAll,
     findAllActive,
@@ -36,6 +41,7 @@ function createProductRepository() {
     insert,
     inactivateById,
     activateById,
+    updatePriceById,
   };
 }
 

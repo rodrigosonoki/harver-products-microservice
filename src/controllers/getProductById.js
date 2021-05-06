@@ -6,17 +6,17 @@ async function getProductById(req, res) {
   const productService = createProductService(productRepository);
 
   const { id } = req.params;
-  if (id.match(/^[0-9a-fA-F]{24}$/)) {
-    // Yes, it's a valid ObjectId, proceed with `findById` call.
-    const found = await productService.getById(id);
-    if (!found) {
-      return res
-        .status(404)
-        .json({ message: `Product not found for id ${id}` });
-    }
-    return res.json(found);
+
+  if (!id.match(/^[0-9a-fA-F]{24}$/))
+    return res.status(404).json({ message: `Product not found for id ${id}` });
+
+  const found = await productService.getById(id);
+
+  if (!found) {
+    return res.status(404).json({ message: `Product not found for id ${id}` });
   }
-  return res.status(404).json({ message: `Product not found for id ${id}` });
+
+  return res.json(found);
 }
 
 export default getProductById;

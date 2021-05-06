@@ -5,6 +5,8 @@ function createProductService(repository) {
   const create = async (product) => await repository.insert(product);
   const inactivate = async (id) => await repository.inactivateById(id);
   const activate = async (id) => await repository.activateById(id);
+  const updatePrice = async (id, price) =>
+    await repository.updatePriceById(id, price);
 
   return {
     getAll,
@@ -13,6 +15,7 @@ function createProductService(repository) {
     create,
     inactivate,
     activate,
+    updatePrice,
   };
 }
 

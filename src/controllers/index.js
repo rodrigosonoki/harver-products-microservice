@@ -6,6 +6,7 @@ import inactivateProduct from "./inactivateProduct";
 import activateProduct from "./activateProduct";
 import listCategories from "./listCategories";
 import createCategory from "./createCategory";
+import updateProductPrice from "./updateProductPrice";
 
 export {
   createProduct,
@@ -16,4 +17,5 @@ export {
   activateProduct,
   listCategories,
   createCategory,
+  updateProductPrice,
 };
