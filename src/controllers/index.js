@@ -4,6 +4,8 @@ import getAllActiveProducts from "./getActiveProducts";
 import getProductById from "./getProductById";
 import inactivateProduct from "./inactivateProduct";
 import activateProduct from "./activateProduct";
+import listCategories from "./listCategories";
+import createCategory from "./createCategory";
 
 export {
   createProduct,
@@ -12,4 +14,6 @@ export {
   inactivateProduct,
   getAllActiveProducts,
   activateProduct,
+  listCategories,
+  createCategory,
 };
