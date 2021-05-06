@@ -24,12 +24,18 @@ function createProductRepository() {
     return await product.save();
   };
 
+  const activateById = async (id) => {
+    const product = await Product.findByIdAndUpdate(id, { isActive: true });
+    return await product.save();
+  };
+
   return {
     findAll,
     findAllActive,
     findById,
     insert,
     inactivateById,
+    activateById,
   };
 }
 

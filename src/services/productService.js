@@ -4,6 +4,7 @@ function createProductService(repository) {
   const getById = async (id) => await repository.findById(id);
   const create = async (product) => await repository.insert(product);
   const inactivate = async (id) => await repository.inactivateById(id);
+  const activate = async (id) => await repository.activateById(id);
 
   return {
     getAll,
@@ -11,6 +12,7 @@ function createProductService(repository) {
     getAllActive,
     create,
     inactivate,
+    activate,
   };
 }
 
